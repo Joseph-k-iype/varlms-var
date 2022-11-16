@@ -1,0 +1,75 @@
+{% extends 'header.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+
+{% include 'nav.html' %}
+<section class="pager-section overlay">
+    <div class="container">
+        <div class="pager-info">
+            {% for l in course %}
+            <h3>Welcome to {{l.name}}
+            </h3>
+            {% endfor %}
+        </div>
+        <!--pager-info end-->
+    </div>
+</section>
+<section class="page-content sec-block">
+    <div class="container">
+        <div class="page-content-details">
+            <div class="portfolio-page">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="project-description">
+
+                            <h3 class="sc-title float-none">About Lesson</h3>
+                            {% for l in course %}
+
+                            <p>
+                                {{l.description}}
+                            </p>
+                            {% endfor %}
+                            <div class="full-bt m-0">
+                                <a href="{% url 'lessons' course.id%}" title="" class="btn-default bg-blue style2">Go to lessons <span></span></a>
+                            </div>
+                            <div class="shared-socio">
+                                <h4>Shared:</h4>
+                                <ul class="social-links">
+                                    <li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" title=""><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#" title=""><i class="fab fa-dribbble"></i></a></li>
+                                </ul>
+                                <!--social-links end-->
+                            </div>
+                            <!--shared-socio end-->
+                        </div>
+                        <!--project-description end-->
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pft-widget">
+                            <ul>
+                                <li>
+                                    <h4>Instructor:</h4>
+                                    {% for course in course %}
+                                    <span>{{course.instructor}}</span>
+                                    {% endfor %}
+                                </li>
+                               
+                             
+                            </ul>
+                        </div>
+                        <!--pft-widget end-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include 'footer.html' %}
+
+{% endblock %}

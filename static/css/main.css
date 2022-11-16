@@ -1,0 +1,13 @@
+.plyr {
+    border-radius: 4px;
+    margin-bottom: 15px;
+  }
+
+  .plyr--hide-controls .title {
+    opacity: 0;
+    pointer-events: none;
+}
+.plyr--hide-controls .button {
+    opacity: 0;
+    pointer-events: none;
+}

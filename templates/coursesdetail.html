@@ -1,0 +1,132 @@
+{% extends 'header.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% block content %}
+
+{% include 'nav.html' %}
+<section class="pager-section overlay">
+    <div class="container">
+        <div class="pager-info">
+            {% for l in l %}
+            <h3>Welcome to {{l.name}}
+            </h3>
+            {% endfor %}
+        </div>
+        <!--pager-info end-->
+    </div>
+</section>
+<!--pager-section end-->
+
+<section class="page-content sec-block">
+    <div class="container">
+        <div class="page-content-details">
+            <div class="portfolio-page">
+                <div class="portfolio-thumbnail">
+                    <p>
+                    </p>
+                    <video id="my-video" class="video-js w-100" controls preload="auto" width="640" height="500"
+                        data-setup="{}">
+                        <!--pass the path of lesson video from models using jinja-->
+                        {% for l in l %}
+                        <source src="{{ MEDIA_URL }}{{ l.video.url }}" type="video/mp4">
+
+                        {% endfor %}
+                        <!-- <source src="{{ MEDIA_URL }}{{ lesson_video.video.url }}" type="video/mp4" /> -->
+                        <p class="vjs-no-js">
+                            To view this video please enable JavaScript, and consider upgrading to a
+                            web browser that
+                            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                        </p>
+                    </video>
+                    <!-- <img src="https://via.placeholder.com/1170x570" alt="" class="w-100"> -->
+                </div>
+                <!--portfolio-thumbnail end-->
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="project-description">
+
+                            <h3 class="sc-title float-none">About Lesson</h3>
+                            {% for l in l %}
+
+                            <p>
+                                {{l.description}}
+                            </p>
+                                {% endfor %}
+                            <div class="shared-socio">
+                                <h4>Shared:</h4>
+                                <ul class="social-links">
+                                    <li><a href="#" title=""><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="#" title=""><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="#" title=""><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="#" title=""><i class="fab fa-dribbble"></i></a></li>
+                                </ul>
+                                <!--social-links end-->
+                            </div>
+                            <!--shared-socio end-->
+                        </div>
+                        <!--project-description end-->
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="pft-widget">
+                            <ul>
+                                <li>
+                                    <h4>Created:</h4>
+                                    <span>March 19th, 2020</span>
+                                </li>
+                                <li>
+                                    <h4>Client:</h4>
+                                    <span>Envato Marketplace</span>
+                                </li>
+                                <li>
+                                    <h4>Category:</h4>
+                                    <span><a href="#" title="">Photography</a>, <a href="#" title="">Brand</a>, <a
+                                            href="#" title="">Design</a></span>
+                                </li>
+                                <li>
+                                    <h4>Dimensions:</h4>
+                                    <span>6000x2844 px</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--pft-widget end-->
+                    </div>
+                </div>
+            </div>
+            <!--portfolio-page end-->
+            <div class="related-posts">
+                <h3 class="sc-title float-none">You may also like</h3>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                        <div class="related-post">
+                            <img src="https://via.placeholder.com/370x470" alt="" class="w-100">
+                        </div>
+                        <!--related-post end-->
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                        <div class="related-post">
+                            <img src="https://via.placeholder.com/370x470" alt="" class="w-100">
+                        </div>
+                        <!--related-post end-->
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                        <div class="related-post">
+                            <img src="https://via.placeholder.com/370x470" alt="" class="w-100">
+                        </div>
+                        <!--related-post end-->
+                    </div>
+                </div>
+            </div>
+            <!--related-posts end-->
+        </div>
+        <!--page-content-details end-->
+    </div>
+</section>
+<!--page-content end-->
+
+
+{% include 'footer.html' %}
+
+{% endblock %}
